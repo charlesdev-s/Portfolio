@@ -1,0 +1,70 @@
+/* App-level styles */
+
+/* Gradient mesh ambient background */
+.gradient-mesh {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.gradient-mesh .blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.08;
+  animation: blobFloat 20s ease-in-out infinite;
+}
+
+.gradient-mesh .blob:nth-child(1) {
+  width: 600px;
+  height: 600px;
+  background: var(--accent);
+  top: -200px;
+  right: -100px;
+  animation-duration: 25s;
+}
+
+.gradient-mesh .blob:nth-child(2) {
+  width: 500px;
+  height: 500px;
+  background: #6366f1;
+  bottom: -150px;
+  left: -100px;
+  animation-duration: 30s;
+  animation-delay: -5s;
+}
+
+.gradient-mesh .blob:nth-child(3) {
+  width: 400px;
+  height: 400px;
+  background: var(--accent);
+  top: 50%;
+  left: 50%;
+  animation-duration: 22s;
+  animation-delay: -10s;
+}
+
+@keyframes blobFloat {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    transform: translate(50px, -30px) scale(1.05);
+  }
+
+  50% {
+    transform: translate(-30px, 50px) scale(0.95);
+  }
+
+  75% {
+    transform: translate(30px, 30px) scale(1.02);
+  }
+}
