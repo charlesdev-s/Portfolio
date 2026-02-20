@@ -66,7 +66,7 @@ function Contact() {
                             </div>
                             <div>
                                 <h3>LinkedIn</h3>
-                                <p>Coming soon</p>
+                                <p>Charles Richard Gamido</p>
                             </div>
                         </a>
                     </div>

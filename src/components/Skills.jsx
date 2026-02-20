@@ -3,11 +3,11 @@ import './Skills.css'
 const skillCategories = [
     {
         title: 'Programming',
-        skills: ['C', 'C++', 'C#', 'Java', 'Python', 'MATLAB'],
+        skills: ['C', 'C++', 'C#', 'Java', 'Python', 'React', 'JavaScript', 'HTML', 'CSS', 'PHP', 'SQL', 'TypeScript', 'Node.js'],
     },
     {
         title: 'Development',
-        skills: ['Unity', 'AR Development', 'ARCore / ARKit', 'Mobile Apps'],
+        skills: ['Unity', 'AR Development', 'ARCore / ARKit', 'Mobile Apps', 'Web Development', 'App Development', 'Software Engineering'],
     },
     {
         title: 'Design & Media',
@@ -15,7 +15,7 @@ const skillCategories = [
     },
     {
         title: 'Tools & Other',
-        skills: ['LaTeX', 'MS Office Suite', 'Google Workspace', 'Git', 'Photography', 'Hardware Assembly'],
+        skills: ['LaTeX', 'MS Office Suite', 'Google Workspace', 'Git', 'Photography', 'Hardware Assembly', 'Technical Support', 'Networking'],
     },
 ]
 

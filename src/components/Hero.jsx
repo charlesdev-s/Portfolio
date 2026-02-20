@@ -36,7 +36,7 @@ function Hero() {
                         <span className="hero-name">Charles Richard<span className="accent-dot">.</span></span>
                     </h1>
                     <p className="hero-subtitle">
-                        Developer · Data Analyst · Multimedia Creator
+                        Android & Web Developer · AR Developer · Data Analyst · Multimedia Creator
                     </p>
                     <p className="hero-description">
                         BS Mathematics & Computer Science student crafting solutions through

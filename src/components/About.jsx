@@ -66,7 +66,7 @@ function About() {
                             </div>
                             <div>
                                 <h3>Focus Areas</h3>
-                                <p>Software Engineering · AR Development</p>
+                                <p>Android & Web Development · AR Development</p>
                                 <span>Data Analysis · Multimedia Design</span>
                             </div>
                         </div>
