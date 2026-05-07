@@ -2,51 +2,33 @@ import './Experience.css'
 
 const experiences = [
     {
-        role: 'Office of the Admin Intern',
-        company: 'TESDA Regional Training Center Central Luzon — Guiguinto',
-        period: 'June 2025 – July 2025',
+        role: 'Virtual Assistant',
+        company: 'The Sales Space (Daniel Kuye) - Remote, United Kingdom',
+        period: 'March 2026 - April 2026',
         points: [
-            'Produced AVP highlights, photo documentation, and newsletter layouts for institutional programs',
-            'Managed digitization and organization of filing systems; encoded financial records in Excel',
-            'Co-authored research on employment outcomes of Dressmaking NC II graduates',
-            'Streamlined office operations through document scanning and attendance compilation',
+            'Managed daily Discord community operations, maintaining student engagement and real-time support',
+            'Built and maintained CRM spreadsheets and student progress trackers with frequent updates',
+            'Executed daily outbound DM campaigns to warm leads with fast client conversations',
+            'Coordinated with the Head Coach on task delegation, attendance tracking, and time-sensitive requests',
         ],
     },
     {
-        role: 'Communications Team Lead — Media Ministry',
-        company: 'Every Nation Campus (ENC), Baliwag',
-        period: 'September 2023 – January 2025',
+        role: 'Admin Office Intern',
+        company: 'TESDA Regional Training Center Central Luzon - Guiguinto, Bulacan',
+        period: 'June 2025 - July 2025',
         points: [
-            'Led the media team for over a year, overseeing photography, design, and digital content production',
-            'Recruited and trained student volunteers in photography, graphic design, and social media management',
-            'Directed content strategy for official social media pages with consistent branding',
+            'Digitized and reorganized institutional filing systems and encoded financial records in Excel',
+            'Co-authored employment outcome research on 95 Dressmaking NC II graduates and presented findings',
+            'Produced multimedia content for institutional programs, including AVP highlights and newsletters',
         ],
     },
     {
         role: 'Non-Voice Call Center Agent',
-        company: 'BPO Company',
-        period: 'July 2022 – January 2023',
+        company: '',
+        period: 'July 2022 - January 2023',
         points: [
-            'Resolved customer inquiries via chat and email while maintaining high quality assurance scores',
-            'Managed data entry and ticket documentation for 200-300 cases daily',
-        ],
-    },
-    {
-        role: 'Logistics Sorter / Picker',
-        company: 'Lazada / Shopee — Meycauayan City, Bulacan',
-        period: 'November 2021 – December 2021',
-        points: [
-            'Sorted and packed 350-500 parcels daily to meet strict dispatch schedules',
-            'Optimized warehouse picking processes through organized inventory checks',
-        ],
-    },
-    {
-        role: 'Sales Encoder',
-        company: 'Dishwashing Supply Store — Baliuag City, Bulacan',
-        period: '',
-        points: [
-            'Encoded daily sales transactions and inventory logs in Microsoft Excel',
-            'Monitored stock levels and generated reports for restocking decisions',
+            'Handled 200-300 daily tickets via chat and email with high resolution and QA scores',
+            'Managed data entry and issue escalation accurately',
         ],
     },
 ]
@@ -72,7 +54,7 @@ function Experience() {
                                     <h3 className="timeline-role">{exp.role}</h3>
                                     {exp.period && <span className="timeline-period">{exp.period}</span>}
                                 </div>
-                                <p className="timeline-company">{exp.company}</p>
+                                {exp.company && <p className="timeline-company">{exp.company}</p>}
                                 <ul className="timeline-points">
                                     {exp.points.map((point, i) => (
                                         <li key={i}>{point}</li>

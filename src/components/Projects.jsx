@@ -2,24 +2,36 @@ import './Projects.css'
 
 const projects = [
     {
-        title: 'ARound BulSU',
-        subtitle: 'Smart AR Campus Navigation & Evacuation App',
+        title: 'LearnJ',
+        subtitle: 'AI-Powered Japanese Learning App',
         description:
-            'An augmented reality mobile application providing real-time campus navigation and emergency evacuation routes for Bulacan State University stakeholders. Features Dijkstra\'s algorithm for optimal pathfinding within the AR interface and an accessible UI/UX design.',
-        tags: ['Unity', 'C#', 'ARCore', 'Dijkstra\'s Algorithm', 'Mobile App'],
-        status: 'Ongoing — Thesis Project',
+            'Built a cross-platform mobile app with AI tutoring, speech-to-text pronunciation practice, and a gamified N5-N1 progress system with streaks and XP.',
+        tags: ['React Native', 'TypeScript', 'Gemini API', 'Supabase', 'Zustand'],
+        status: 'Dec 2025 - Mar 2026',
         links: {
             github: null,
             live: null,
         },
     },
     {
-        title: 'Employment Outcomes Research',
-        subtitle: 'Dressmaking NC II 2023 Graduates Analysis',
+        title: 'ARound BulSU',
+        subtitle: 'AR Campus Navigation App (Thesis)',
         description:
-            'Conducted employment outcome analysis of 95 Dressmaking NC II graduates, analyzing employment trends and career progression to evaluate qualification effectiveness. Presented findings to TESDA administration to inform program improvement strategies.',
-        tags: ['Microsoft Excel', 'Data Analysis', 'Data Visualization', 'Research'],
-        status: 'Completed — TESDA RTCCL Internship',
+            'Developing a real-time AR navigation and evacuation app for BulSU using optimal pathfinding algorithms and leading UI/UX design for diverse users.',
+        tags: ['Unity', 'C#', 'ARCore/ARKit', 'Pathfinding', 'UI/UX'],
+        status: 'Thesis Project - Ongoing',
+        links: {
+            github: null,
+            live: null,
+        },
+    },
+    {
+        title: 'Climatic Factors & Dengue Incidence',
+        subtitle: 'Mathematical Modeling Study',
+        description:
+            'Modeled dengue-climate relationships and identified relative humidity as the primary driver using VIF, AIC, and BIC diagnostics; presented findings to local health researchers.',
+        tags: ['R', 'Jamovi', 'Regression Modeling', 'Statistical Diagnostics'],
+        status: '2025',
         links: {
             github: null,
             live: null,

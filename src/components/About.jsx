@@ -12,22 +12,22 @@ function About() {
                 <div className="about-grid reveal">
                     <div className="about-text">
                         <p>
-                            I'm a <strong>BS Mathematics & Computer Science</strong> student at
-                            <strong> Bulacan State University</strong>, passionate about building
-                            solutions that sit at the intersection of technology, data, and design.
+                            I'm a <strong>full-stack developer and data analyst</strong> based in
+                            <strong> Baliuag City, Bulacan</strong>, currently completing my
+                            <strong> B.S. Mathematics (Computer Science)</strong> at Bulacan State
+                            University.
                         </p>
                         <p>
-                            With experience spanning <strong>software development</strong>,
-                            <strong> AR applications</strong>, <strong>data analysis</strong>, and
-                            <strong> multimedia production</strong>, I bring a versatile skill set
-                            to every project. I thrive on tackling complex problems and
-                            transforming them into clean, functional, and visually engaging
-                            experiences.
+                            My work spans <strong>mobile app development</strong>,
+                            <strong> AR experiences</strong>, and <strong>statistical modeling</strong>.
+                            I build end-to-end solutions across <strong>React Native</strong>,
+                            <strong> Python</strong>, and <strong>C#</strong>, and enjoy turning
+                            complex data into actionable insights.
                         </p>
                         <p>
-                            Beyond coding, I've led media teams, produced content strategies,
-                            and contributed to community outreach — always driven by a desire
-                            to create meaningful impact.
+                            Recent work includes <strong>CRM operations</strong>,
+                            <strong> community management</strong>, and research projects like
+                            dengue-climate modeling and employment outcomes analysis.
                         </p>
                     </div>
 
@@ -41,8 +41,8 @@ function About() {
                             </div>
                             <div>
                                 <h3>Education</h3>
-                                <p>BS Mathematics, Major in Computer Science</p>
-                                <span>Bulacan State University · Expected June 2026</span>
+                                <p>B.S. Mathematics (Computer Science)</p>
+                                <span>Bulacan State University · June 2026</span>
                             </div>
                         </div>
                         <div className="about-card">
@@ -66,8 +66,8 @@ function About() {
                             </div>
                             <div>
                                 <h3>Focus Areas</h3>
-                                <p>Android & Web Development · AR Development</p>
-                                <span>Data Analysis · Multimedia Design</span>
+                                <p>Full-stack & Mobile Development · AR/Unity</p>
+                                <span>Data Analysis · Statistical Modeling</span>
                             </div>
                         </div>
                     </div>

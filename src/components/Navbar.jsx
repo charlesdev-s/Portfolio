@@ -24,18 +24,18 @@ function Navbar() {
     const handleDownloadCV = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch('/Charles-Richard-Gamido-CV.pdf')
+            const response = await fetch('/Charles-Richard-Gamido-Resume.pdf')
             const blob = await response.blob()
             const url = window.URL.createObjectURL(blob)
             const link = document.createElement('a')
             link.href = url
-            link.download = 'Charles-Richard-Gamido-CV.pdf'
+            link.download = 'Charles-Richard-Gamido-Resume.pdf'
             document.body.appendChild(link)
             link.click()
             document.body.removeChild(link)
             window.URL.revokeObjectURL(url)
         } catch (err) {
-            window.open('/Charles-Richard-Gamido-CV.pdf', '_blank')
+            window.open('/Charles-Richard-Gamido-Resume.pdf', '_blank')
         }
     }
 

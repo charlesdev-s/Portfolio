@@ -4,18 +4,18 @@ function Hero() {
     const handleDownloadCV = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch('/Charles-Richard-Gamido-CV.pdf')
+            const response = await fetch('/Charles-Richard-Gamido-Resume.pdf')
             const blob = await response.blob()
             const url = window.URL.createObjectURL(blob)
             const link = document.createElement('a')
             link.href = url
-            link.download = 'Charles-Richard-Gamido-CV.pdf'
+            link.download = 'Charles-Richard-Gamido-Resume.pdf'
             document.body.appendChild(link)
             link.click()
             document.body.removeChild(link)
             window.URL.revokeObjectURL(url)
         } catch (err) {
-            window.open('/Charles-Richard-Gamido-CV.pdf', '_blank')
+            window.open('/Charles-Richard-Gamido-Resume.pdf', '_blank')
         }
     }
 
@@ -36,12 +36,13 @@ function Hero() {
                         <span className="hero-name">Charles Richard<span className="accent-dot">.</span></span>
                     </h1>
                     <p className="hero-subtitle">
-                        Android & Web Developer · AR Developer · Data Analyst · Multimedia Creator
+                        Full-stack Developer · Data Analyst · Mobile & AR Development
                     </p>
                     <p className="hero-description">
-                        BS Mathematics & Computer Science student crafting solutions through
-                        code, data, and design. Passionate about AR development, software
-                        engineering, and turning complex problems into elegant experiences.
+                        Full-stack developer and data analyst with hands-on experience in mobile
+                        app development, statistical modeling, and CRM systems. I build end-to-end
+                        solutions across React Native, Python, and C# with a strong mathematical
+                        foundation.
                     </p>
                     <div className="hero-actions">
                         <button
@@ -53,7 +54,7 @@ function Hero() {
                                 <polyline points="7 10 12 15 17 10" />
                                 <line x1="12" y1="15" x2="12" y2="3" />
                             </svg>
-                            Download CV
+                            Download Resume
                         </button>
                         <a href="#contact" className="btn btn-secondary">
                             Get in Touch
@@ -68,8 +69,8 @@ function Hero() {
                 <div className="hero-image-wrapper">
                     <div className="hero-image-ring">
                         <img
-                            src="/charles-photo.jpg"
-                            alt="Charles Richard Gamido"
+                            src="/charles-headshot-2026.jpg"
+                            alt="Charles Richard Gamido portrait"
                             className="hero-image"
                         />
                     </div>

@@ -2,20 +2,24 @@ import './Skills.css'
 
 const skillCategories = [
     {
-        title: 'Programming',
-        skills: ['C', 'C++', 'C#', 'Java', 'Python', 'React', 'JavaScript', 'HTML', 'CSS', 'PHP', 'SQL', 'TypeScript', 'Node.js'],
+        title: 'Languages',
+        skills: ['C', 'C++', 'C#', 'Java', 'Python', 'TypeScript', 'Node.js', 'React Native', 'MATLAB'],
     },
     {
-        title: 'Development',
-        skills: ['Unity', 'AR Development', 'ARCore / ARKit', 'Mobile Apps', 'Web Development', 'App Development', 'Software Engineering'],
+        title: 'Frameworks & Tools',
+        skills: ['Unity', 'ARCore/ARKit', 'Supabase', 'Zustand', 'Git'],
     },
     {
-        title: 'Design & Media',
-        skills: ['Adobe Photoshop', 'Illustrator', 'Inkscape', 'Canva', 'CapCut', 'Filmora'],
+        title: 'Data & Analytics',
+        skills: ['R', 'Jamovi', 'MS Excel (Advanced)', 'GLM / Regression Modeling', 'Statistical Diagnostics'],
     },
     {
-        title: 'Tools & Other',
-        skills: ['LaTeX', 'MS Office Suite', 'Google Workspace', 'Git', 'Photography', 'Hardware Assembly', 'Technical Support', 'Networking'],
+        title: 'Design',
+        skills: ['Adobe Photoshop', 'Illustrator', 'Inkscape', 'Canva', 'LaTeX'],
+    },
+    {
+        title: 'Other',
+        skills: ['CRM & Spreadsheet Systems', 'Discord Community Management', 'Hardware Assembly', 'Windows/Linux'],
     },
 ]
 
