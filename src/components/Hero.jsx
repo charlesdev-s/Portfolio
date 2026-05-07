@@ -33,7 +33,7 @@ function Hero() {
                     <div className="hero-badge">Available for opportunities</div>
                     <h1 className="hero-title">
                         <span className="hero-greeting">Hi, I'm</span>
-                        <span className="hero-name">Charles Richard<span className="accent-dot">.</span></span>
+                        <span className="hero-name">Charles Richard Gamido<span className="accent-dot">.</span></span>
                     </h1>
                     <p className="hero-subtitle">
                         Full-stack Developer · Data Analyst · Mobile & AR Development
