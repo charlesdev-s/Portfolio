@@ -25,3 +25,10 @@ dist-ssr
 extracted/
 .gemini/
 portfolio-temp/
+
+# Source assets kept locally only (optimized versions live in public/)
+/Charles_Richard_Gamido-Resume.pdf
+/Charles-Richard-Gamido-Resume.pdf
+/71264f4d-97aa-4e48-9e20-1178148a7aee.jpg
+/Gemini_Generated_Image_*.png
+

@@ -1,5 +1,5 @@
 .contact-content {
-    max-width: 700px;
+    max-width: 900px;
 }
 
 .contact-text {
@@ -11,8 +11,14 @@
 
 .contact-cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
+}
+
+@media (max-width: 980px) {
+    .contact-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .contact-card {

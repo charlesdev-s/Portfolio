@@ -78,6 +78,26 @@
     letter-spacing: 1px;
     margin-bottom: 20px;
     animation: fadeInUp 0.8s ease 0.5s both;
+    min-height: 1.5em;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+}
+
+.typewriter-text {
+    display: inline-block;
+}
+
+.typewriter-caret {
+    display: inline-block;
+    font-weight: 400;
+    color: var(--accent);
+    animation: caretBlink 1s steps(2) infinite;
+}
+
+@keyframes caretBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .hero-description {

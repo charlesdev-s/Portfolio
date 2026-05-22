@@ -1,0 +1,90 @@
+.leadership-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+}
+
+.leadership-card {
+    padding: 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: var(--transition-fast);
+}
+
+.leadership-card:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-elevated);
+    transform: translateX(4px);
+}
+
+.leadership-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+}
+
+.leadership-role {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.leadership-period {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent);
+    white-space: nowrap;
+    padding: 2px 10px;
+    background: var(--accent-glow);
+    border-radius: 100px;
+}
+
+.leadership-org {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+}
+
+.leadership-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.leadership-points li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding-left: 16px;
+    position: relative;
+}
+
+.leadership-points li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .leadership-card {
+        padding: 22px;
+    }
+
+    .leadership-header {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .leadership-period {
+        align-self: flex-start;
+    }
+}

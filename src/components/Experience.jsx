@@ -24,7 +24,7 @@ const experiences = [
     },
     {
         role: 'Non-Voice Call Center Agent',
-        company: '',
+        company: 'Customer Support - Hybrid, Bustos, Bulacan',
         period: 'July 2022 - January 2023',
         points: [
             'Handled 200-300 daily tickets via chat and email with high resolution and QA scores',

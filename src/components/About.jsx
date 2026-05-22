@@ -9,6 +9,25 @@ function About() {
                     <h2 className="section-title">Turning Ideas Into Reality</h2>
                 </div>
 
+                <div className="about-stats reveal-stagger">
+                    <div className="about-stat">
+                        <span className="about-stat-number">4+</span>
+                        <span className="about-stat-label">Featured Projects</span>
+                    </div>
+                    <div className="about-stat">
+                        <span className="about-stat-number">3</span>
+                        <span className="about-stat-label">Professional Roles</span>
+                    </div>
+                    <div className="about-stat">
+                        <span className="about-stat-number">10+</span>
+                        <span className="about-stat-label">Languages &amp; Tools</span>
+                    </div>
+                    <div className="about-stat">
+                        <span className="about-stat-number">1.5+</span>
+                        <span className="about-stat-label">Years Leading a Team</span>
+                    </div>
+                </div>
+
                 <div className="about-grid reveal">
                     <div className="about-text">
                         <p>
@@ -43,6 +62,8 @@ function About() {
                                 <h3>Education</h3>
                                 <p>B.S. Mathematics (Computer Science)</p>
                                 <span>Bulacan State University · June 2026</span>
+                                <p className="about-card-secondary">Senior High School &mdash; STEM</p>
+                                <span>Marian College of Baliwag · June 2022</span>
                             </div>
                         </div>
                         <div className="about-card">

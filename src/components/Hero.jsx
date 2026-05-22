@@ -1,6 +1,52 @@
+import { useEffect, useState } from 'react'
 import './Hero.css'
 
+const ROLES = [
+    'Full-stack Developer',
+    'Data Analyst',
+    'Mobile & AR Developer',
+    'Mathematical Modeler',
+]
+
+function useTypewriter(words, { typeSpeed = 75, deleteSpeed = 40, pause = 1600 } = {}) {
+    const [text, setText] = useState('')
+    const [wordIndex, setWordIndex] = useState(0)
+    const [deleting, setDeleting] = useState(false)
+
+    useEffect(() => {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        if (prefersReduced) {
+            setText(words[0])
+            return
+        }
+
+        const currentWord = words[wordIndex % words.length]
+
+        if (!deleting && text === currentWord) {
+            const t = setTimeout(() => setDeleting(true), pause)
+            return () => clearTimeout(t)
+        }
+        if (deleting && text === '') {
+            setDeleting(false)
+            setWordIndex((i) => (i + 1) % words.length)
+            return
+        }
+
+        const t = setTimeout(() => {
+            setText((prev) =>
+                deleting
+                    ? currentWord.substring(0, prev.length - 1)
+                    : currentWord.substring(0, prev.length + 1)
+            )
+        }, deleting ? deleteSpeed : typeSpeed)
+        return () => clearTimeout(t)
+    }, [text, deleting, wordIndex, words, typeSpeed, deleteSpeed, pause])
+
+    return text
+}
+
 function Hero() {
+    const typed = useTypewriter(ROLES)
     const handleDownloadCV = async (e) => {
         e.preventDefault()
         try {
@@ -35,8 +81,9 @@ function Hero() {
                         <span className="hero-greeting">Hi, I'm</span>
                         <span className="hero-name">Charles Richard Gamido<span className="accent-dot">.</span></span>
                     </h1>
-                    <p className="hero-subtitle">
-                        Full-stack Developer · Data Analyst · Mobile & AR Development
+                    <p className="hero-subtitle" aria-live="polite">
+                        <span className="typewriter-text">{typed}</span>
+                        <span className="typewriter-caret" aria-hidden="true">|</span>
                     </p>
                     <p className="hero-description">
                         Full-stack developer and data analyst with hands-on experience in mobile
