@@ -24,6 +24,11 @@
     order: 2;
 }
 
+.project-card--no-thumb,
+.project-card--no-thumb:nth-child(even) {
+    grid-template-columns: 1fr;
+}
+
 .project-card:hover {
     border-color: var(--border-hover);
     transform: translateY(-4px);

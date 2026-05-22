@@ -21,7 +21,7 @@ const projects = [
             'Developing a real-time AR navigation and evacuation app for BulSU (team of 5) using optimal pathfinding algorithms; leading UI/UX design for diverse users.',
         tags: ['Unity', 'C#', 'ARCore/ARKit', 'Pathfinding', 'UI/UX'],
         status: 'Thesis Project - Ongoing',
-        thumbnail: '/projects/around-bulsu.svg',
+        thumbnail: '/projects/around-bulsu.jpg',
         links: {
             github: null,
             live: null,
@@ -34,7 +34,6 @@ const projects = [
             'Modeled dengue-climate relationships and identified relative humidity as the primary driver via VIF, AIC, and BIC diagnostics; presented findings to local health researchers.',
         tags: ['R', 'Jamovi', 'Negative Binomial Regression', 'Statistical Diagnostics'],
         status: '2025',
-        thumbnail: '/projects/dengue.svg',
         links: {
             github: null,
             live: null,
@@ -47,7 +46,6 @@ const projects = [
             'Co-programmed a 2D platformer with movement, dash/glide mechanics, and interactive levels; designed original character sprites and level maps.',
         tags: ['Unity', 'C#', 'Krita', 'Game Design'],
         status: '2025',
-        thumbnail: '/projects/eli.svg',
         links: {
             github: null,
             live: null,
@@ -66,7 +64,10 @@ function Projects() {
 
                 <div className="projects-list reveal-stagger">
                     {projects.map((project) => (
-                        <article key={project.title} className="project-card">
+                        <article
+                            key={project.title}
+                            className={`project-card ${project.thumbnail ? '' : 'project-card--no-thumb'}`}
+                        >
                             {project.thumbnail && (
                                 <div className="project-thumbnail">
                                     <img
