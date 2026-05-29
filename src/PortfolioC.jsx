@@ -1,16 +1,10 @@
 // Portfolio Direction C — Brutalist Mono / Developer Terminal
 // Heavy borders, monospace everywhere, ASCII visual language. Lime accent.
 // White paper + ink black + a single neon. README-style structure.
-import { useState, createContext, useContext } from 'react'
+import { createContext, useContext } from 'react'
 import { PORTFOLIO } from './data'
 
 const P = PORTFOLIO
-
-// ── Contact delivery ────────────────────────────────────────────────────────
-// Drop a Formspree endpoint here (e.g. "https://formspree.io/f/xxxxxxxx") to send
-// messages straight to your inbox with no page reload. If left blank, the form
-// falls back to opening the visitor's mail client pre-addressed to you.
-const FORMSPREE_ENDPOINT = ''
 
 const C_COLORS = {
   bg: '#f5f4ef',
@@ -944,152 +938,44 @@ function CExperience() {
 }
 
 // ── CONTACT ───────────────────────────────────────────────────────────────────
-function CContactForm() {
-  const [state, setState] = useState({ name: '', email: '', company: '', message: '' })
-  const [sent, setSent] = useState(false)
-  const [sending, setSending] = useState(false)
-  const [error, setError] = useState('')
-
-  const submit = async (e) => {
-    e.preventDefault()
-    setSending(true)
-    setError('')
-    try {
-      if (FORMSPREE_ENDPOINT) {
-        const res = await fetch(FORMSPREE_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({
-            name: state.name,
-            email: state.email,
-            company: state.company,
-            message: state.message,
-            _subject: `Portfolio message from ${state.name}`,
-          }),
-        })
-        if (!res.ok) throw new Error('Request failed')
-      } else {
-        // No endpoint configured — hand off to the visitor's mail client.
-        const subject = encodeURIComponent(`Portfolio message from ${state.name}`)
-        const body = encodeURIComponent(
-          `${state.message}\n\n— ${state.name}${state.company ? ` (${state.company})` : ''}\n${state.email}`
-        )
-        window.location.href = `mailto:${P.email}?subject=${subject}&body=${body}`
-      }
-      setSent(true)
-    } catch {
-      setError('Could not send right now. Email me directly at ' + P.email)
-    } finally {
-      setSending(false)
-    }
-  }
-
-  const inputStyle = {
-    width: '100%',
-    background: C_COLORS.bg,
-    border: `1.5px solid ${C_COLORS.ink}`,
-    padding: '12px 14px',
-    fontFamily: C_MONO,
-    fontSize: 14,
-    color: C_COLORS.ink,
-    outline: 'none',
-    borderRadius: 0,
-  }
-
-  if (sent) {
-    return (
-      <div style={cBox({ padding: 32, background: C_COLORS.accent, boxShadow: `6px 6px 0 ${C_COLORS.ink}` })}>
-        <div style={{ fontFamily: C_MONO, fontSize: 11, color: C_COLORS.ink, marginBottom: 14, letterSpacing: '0.1em' }}>$ ./send-message</div>
-        <div style={{ fontFamily: C_DISP, fontSize: 36, fontWeight: 700, color: C_COLORS.ink, margin: '0 0 8px', letterSpacing: '-0.02em' }}>EXIT 0 ✓</div>
-        <p style={{ fontFamily: C_MONO, fontSize: 14, color: C_COLORS.ink, margin: 0 }}>
-          {FORMSPREE_ENDPOINT ? 'Message queued. Reply in < 24h.' : 'Your mail client is opening — hit send and I’ll reply in < 24h.'}
-        </p>
-      </div>
-    )
-  }
-
-  return (
-    <form onSubmit={submit} style={cBox({ padding: 28, boxShadow: `6px 6px 0 ${C_COLORS.ink}` })}>
-      <div
-        style={{
-          fontFamily: C_MONO,
-          fontSize: 11,
-          color: C_COLORS.mute,
-          marginBottom: 22,
-          letterSpacing: '0.1em',
-          paddingBottom: 12,
-          borderBottom: `1px dashed ${C_COLORS.ruleSoft}`,
-        }}
-      >
-        {`// POST /api/messages`}
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-        {[
-          ['name', 'Your name', 'Jane Cooper'],
-          ['email', 'Email', 'jane@company.com'],
-          ['company', 'Company / role (optional)', 'Acme — Eng Manager'],
-        ].map(([k, l, ph]) => (
-          <div key={k}>
-            <CLabel size={11} color={C_COLORS.mute} style={{ marginBottom: 6 }}>{l}</CLabel>
-            <input
-              style={inputStyle}
-              value={state[k]}
-              onChange={(e) => setState({ ...state, [k]: e.target.value })}
-              placeholder={ph}
-              required={k !== 'company'}
-              type={k === 'email' ? 'email' : 'text'}
-            />
-          </div>
-        ))}
-        <div>
-          <CLabel size={11} color={C_COLORS.mute} style={{ marginBottom: 6 }}>Message</CLabel>
-          <textarea
-            style={{ ...inputStyle, minHeight: 110, resize: 'vertical' }}
-            value={state.message}
-            onChange={(e) => setState({ ...state, message: e.target.value })}
-            placeholder="Project, timeline, scope. Be specific — saves us both time."
-            required
-          />
-        </div>
-        {error && (
-          <div style={{ fontFamily: C_MONO, fontSize: 12, color: C_COLORS.warn, fontWeight: 600 }}>! {error}</div>
-        )}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, marginTop: 4, flexWrap: 'wrap' }}>
-          <div style={{ fontFamily: C_MONO, fontSize: 11, color: C_COLORS.mute, letterSpacing: '0.05em' }}>↵ replies within 24h</div>
-          <button
-            type="submit"
-            disabled={sending}
-            style={{
-              fontFamily: C_MONO,
-              fontSize: 13,
-              fontWeight: 700,
-              letterSpacing: '0.05em',
-              background: C_COLORS.ink,
-              color: C_COLORS.accent,
-              border: `1.5px solid ${C_COLORS.ink}`,
-              padding: '12px 22px',
-              cursor: sending ? 'wait' : 'pointer',
-              borderRadius: 0,
-              boxShadow: `4px 4px 0 ${C_COLORS.accent}`,
-            }}
-          >
-            {sending ? 'POSTING…' : '$ SEND →'}
-          </button>
-        </div>
-      </div>
-    </form>
-  )
-}
-
 function CContact() {
   const m = useM()
   const links = [
-    ['email', P.email, `mailto:${P.email}`],
-    ['github', `@${P.github}`, P.githubUrl],
-    ['linkedin', P.linkedin, P.linkedinUrl],
-    ['upwork', 'hire on upwork', P.upworkUrl],
-    ['phone', P.phone, `tel:${P.phone.replace(/\s/g, '')}`],
+    { k: 'email', v: P.email, h: `mailto:${P.email}`, primary: true },
+    { k: 'github', v: `@${P.github}`, h: P.githubUrl },
+    { k: 'linkedin', v: P.linkedin, h: P.linkedinUrl },
+    { k: 'upwork', v: 'hire on upwork', h: P.upworkUrl },
+    { k: 'phone', v: P.phone, h: `tel:${P.phone.replace(/\s/g, '')}` },
   ]
+
+  const Tile = ({ k, v, h, primary }) => (
+    <a
+      key={k}
+      href={h}
+      target={h.startsWith('http') ? '_blank' : undefined}
+      rel={h.startsWith('http') ? 'noreferrer' : undefined}
+      style={{
+        ...cBox({ padding: primary ? '22px 24px' : '16px 18px' }),
+        gridColumn: !m && primary ? '1 / -1' : 'auto',
+        boxShadow: primary ? `5px 5px 0 ${C_COLORS.accent}` : 'none',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        textDecoration: 'none',
+        fontFamily: C_MONO,
+        color: C_COLORS.ink,
+      }}
+    >
+      <div>
+        <div style={{ color: C_COLORS.mute, fontSize: 10, letterSpacing: '0.15em', marginBottom: 3 }}>
+          $ ./{k}{primary ? '  — fastest' : ''}
+        </div>
+        <div style={{ fontWeight: 600, fontSize: primary ? 18 : 14, wordBreak: 'break-word' }}>{v}</div>
+      </div>
+      <div style={{ color: C_COLORS.accentDeep, fontSize: 16 }}>↗</div>
+    </a>
+  )
+
   return (
     <CSection
       tag="05 / CONTACT.SH"
@@ -1102,38 +988,12 @@ function CContact() {
           <span style={{ color: C_COLORS.accentDeep, animation: 'blink 1s infinite' }}>_</span>
         </>
       }
-      kicker="// Tell me what you're building. Full-time, contract, freelance — all read."
+      kicker="// No contact form — reach me directly. Email is fastest, and I read every message myself. Full-time, contract or freelance — all welcome."
     >
-      <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1.4fr 1fr', gap: m ? 24 : 40 }}>
-        <CContactForm />
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-          <CLabel size={11} color={C_COLORS.mute} style={{ marginBottom: 8 }}>// or grep me directly</CLabel>
-          {links.map(([k, v, h]) => (
-            <a
-              key={k}
-              href={h}
-              target={h.startsWith('http') ? '_blank' : undefined}
-              rel={h.startsWith('http') ? 'noreferrer' : undefined}
-              style={{
-                ...cBox({ padding: '14px 18px' }),
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                textDecoration: 'none',
-                fontFamily: C_MONO,
-                fontSize: 13,
-                color: C_COLORS.ink,
-                transition: 'transform .15s',
-              }}
-            >
-              <div>
-                <div style={{ color: C_COLORS.mute, fontSize: 10, letterSpacing: '0.15em', marginBottom: 2 }}>$ ./{k}</div>
-                <div style={{ fontWeight: 600 }}>{v}</div>
-              </div>
-              <div style={{ color: C_COLORS.accentDeep, fontSize: 14 }}>↗</div>
-            </a>
-          ))}
-        </div>
+      <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(2, 1fr)', gap: m ? 14 : 18 }}>
+        {links.map((l) => (
+          <Tile key={l.k} {...l} />
+        ))}
       </div>
       {/* footer */}
       <div
@@ -1150,8 +1010,8 @@ function CContact() {
           fontSize: 12,
         }}
       >
-        <div style={{ color: C_COLORS.ink, fontWeight: 600 }}>©2026 Charles Richard Gamido · MIT-spirited build</div>
-        <div style={{ color: C_COLORS.mute, letterSpacing: '0.1em' }}>Last commit: 2026-05 · Build: stable</div>
+        <div style={{ color: C_COLORS.ink, fontWeight: 600 }}>© 2026 Charles Richard Gamido</div>
+        <div style={{ color: C_COLORS.mute, letterSpacing: '0.1em' }}>Baliuag, Bulacan · Philippines</div>
       </div>
     </CSection>
   )
