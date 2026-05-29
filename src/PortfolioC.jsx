@@ -547,11 +547,13 @@ function CAbout() {
   )
 }
 
-// ── SKILLS (ASCII bar chart) ──────────────────────────────────────────────────
-function asciiBar(val, len = 24) {
-  const filled = Math.round((val / 100) * len)
-  return '█'.repeat(filled) + '░'.repeat(len - filled)
-}
+// ── SKILLS (tiered by honest depth) ────────────────────────────────────────────
+// Tier order + display colour. Skills group under these instead of fake % bars.
+const SKILL_TIERS = [
+  ['primary', 'primary', C_COLORS.accent],
+  ['working', 'working', 'rgba(199,242,132,0.78)'],
+  ['familiar', 'familiar', 'rgba(199,242,132,0.45)'],
+]
 
 function CSkills() {
   const m = useM()
@@ -560,12 +562,12 @@ function CSkills() {
       tag="02 / SKILLS.SH"
       id="skills-c"
       bg={C_COLORS.paper}
-      title="Tools, ranked by frequency in real builds."
-      kicker="// $ for skill in stack; do print $skill; done"
+      title="Tools, grouped by how deep I actually go."
+      kicker="// $ cat skills.txt | sort --by-depth"
     >
       <div style={cBox({ padding: m ? 18 : 28, background: C_COLORS.ink, boxShadow: `8px 8px 0 ${C_COLORS.accent}` })}>
         <div style={{ fontFamily: C_MONO, fontSize: 11, color: 'rgba(199,242,132,0.7)', marginBottom: 18, letterSpacing: '0.1em' }}>
-          $ cat skills.txt | sort --by-frequency
+          $ cat skills.txt | sort --by-depth
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: m ? 20 : 28 }}>
           {Object.entries(P.skills).map(([cat, items]) => (
@@ -584,27 +586,17 @@ function CSkills() {
               >
                 ▸ {cat.toUpperCase()}
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontFamily: C_MONO, fontSize: 12 }}>
-                {items.map(([name, val]) => (
-                  <div key={name} style={{ display: 'grid', gridTemplateColumns: m ? '88px 1fr 30px' : '140px 1fr 40px', gap: m ? 8 : 12, alignItems: 'center' }}>
-                    <div style={{ color: '#e8e8e8', fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                      {name}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 7, fontFamily: C_MONO, fontSize: 12.5 }}>
+                {SKILL_TIERS.map(([tier, label, color]) => {
+                  const names = items.filter(([, t]) => t === tier).map(([n]) => n)
+                  if (!names.length) return null
+                  return (
+                    <div key={tier} style={{ display: 'grid', gridTemplateColumns: m ? '74px 1fr' : '84px 1fr', gap: m ? 8 : 12, alignItems: 'baseline' }}>
+                      <span style={{ color, fontWeight: 700, letterSpacing: '0.04em' }}>{label}</span>
+                      <span style={{ color: '#e8e8e8', lineHeight: 1.5, textWrap: 'pretty' }}>{names.join(', ')}</span>
                     </div>
-                    <div
-                      style={{
-                        letterSpacing: '0',
-                        color: val >= 85 ? C_COLORS.accent : 'rgba(199,242,132,0.6)',
-                        fontSize: 13,
-                        lineHeight: 1,
-                        whiteSpace: 'nowrap',
-                        overflow: 'hidden',
-                      }}
-                    >
-                      {asciiBar(val, m ? 12 : 22)}
-                    </div>
-                    <div style={{ color: C_COLORS.accent, textAlign: 'right', fontWeight: 600 }}>{val}</div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
           ))}
@@ -620,7 +612,7 @@ function CSkills() {
             letterSpacing: '0.05em',
           }}
         >
-          {`// values are subjective "how often I reach for it" weights, not exam scores`}
+          {`// primary = daily driver · working = used in real projects · familiar = built with it, ramp fast`}
         </div>
       </div>
     </CSection>
@@ -692,6 +684,65 @@ function CProjectGallery({ p, accent }) {
   )
 }
 
+// Proof strip — repo / live demo / video buttons in the card.
+// Fill p.repo / p.demo / p.video in data.js to wire real links. If a repo
+// exists but is private, set p.repoPrivate to surface an honest "on request" tag.
+function ProofLinks({ p, accent }) {
+  const btn = (filled) => ({
+    fontFamily: C_MONO,
+    fontSize: 12,
+    fontWeight: 600,
+    letterSpacing: '0.04em',
+    color: C_COLORS.ink,
+    background: filled ? accent : C_COLORS.paper,
+    border: `1.5px solid ${C_COLORS.ink}`,
+    padding: '7px 12px',
+    textDecoration: 'none',
+    whiteSpace: 'nowrap',
+  })
+  const links = [
+    p.demo && { k: 'live demo ↗', h: p.demo, filled: true },
+    p.repo && { k: 'repo ↗', h: p.repo, filled: false },
+    p.video && { k: 'watch ▶', h: p.video, filled: false },
+  ].filter(Boolean)
+
+  if (!links.length && !p.repoPrivate) return null
+
+  return (
+    <div
+      style={{
+        display: 'flex',
+        gap: 8,
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        padding: '12px 20px',
+        background: C_COLORS.bg,
+        borderBottom: `1.5px solid ${C_COLORS.ink}`,
+      }}
+    >
+      {links.map((l) => (
+        <a key={l.k} href={l.h} target="_blank" rel="noreferrer" style={btn(l.filled)}>
+          {l.k}
+        </a>
+      ))}
+      {p.repoPrivate && !p.repo && (
+        <span
+          style={{
+            fontFamily: C_MONO,
+            fontSize: 12,
+            color: C_COLORS.mute,
+            border: `1.5px dashed ${C_COLORS.ruleSoft}`,
+            padding: '7px 12px',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {'// repo private — walkthrough on request'}
+        </span>
+      )}
+    </div>
+  )
+}
+
 function CProjectCard({ p, i }) {
   const m = useM()
   return (
@@ -720,6 +771,8 @@ function CProjectCard({ p, i }) {
         </div>
         <span>{p.period}</span>
       </div>
+
+      <ProofLinks p={p} accent={i === 0 ? C_COLORS.accent : C_COLORS.warn} />
 
       <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1.2fr 1fr', gap: 0 }}>
         <div style={{ padding: m ? 22 : 36, borderRight: m ? 'none' : `1.5px solid ${C_COLORS.ink}` }}>

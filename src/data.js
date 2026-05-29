@@ -39,12 +39,16 @@ export const PORTFOLIO = {
     { degree: "Senior High — STEM strand", school: "Marian College of Baliwag Inc.", year: "Jun 2022" },
   ],
 
+  // Tier = honest depth, not a self-graded exam score.
+  // "primary" = reach for daily / shipped real work with it.
+  // "working" = comfortable, used in real projects.
+  // "familiar" = have built with it, would ramp quickly.
   skills: {
-    "Languages":   [["TypeScript", 88], ["Python", 85], ["C#", 80], ["Java", 72], ["C / C++", 70], ["Node.js", 75]],
-    "Mobile & AR": [["React Native", 88], ["Unity", 75], ["ARCore / ARKit", 70], ["Expo", 80]],
-    "Backend & Data": [["Supabase", 82], ["Zustand", 85], ["R / Jamovi", 78], ["GLM / Regression", 80], ["MATLAB", 65]],
-    "Tooling & Design": [["Git", 88], ["Photoshop", 80], ["Illustrator", 75], ["LaTeX", 78], ["Excel (advanced)", 90]],
-    "Hardware & Media": [["Photography", 82], ["Hardware Assembly", 80], ["System Diagnostics", 76], ["Win/Linux Install", 82]],
+    "Languages":        [["TypeScript", "primary"], ["Python", "primary"], ["C#", "working"], ["Node.js", "working"], ["Java", "familiar"], ["C / C++", "familiar"]],
+    "Mobile & AR":      [["React Native", "primary"], ["Expo", "working"], ["Unity", "working"], ["ARCore / ARKit", "familiar"]],
+    "Backend & Data":   [["Zustand", "primary"], ["Supabase", "working"], ["GLM / Regression", "working"], ["R / Jamovi", "working"], ["MATLAB", "familiar"]],
+    "Tooling & Design": [["Git", "primary"], ["Excel (advanced)", "primary"], ["Photoshop", "working"], ["LaTeX", "working"], ["Illustrator", "working"]],
+    "Hardware & Media": [["Win/Linux Install", "working"], ["Photography", "working"], ["Hardware Assembly", "working"], ["System Diagnostics", "working"]],
   },
 
   projects: [
@@ -65,6 +69,11 @@ export const PORTFOLIO = {
         "Offline-friendly vocab review with audio synthesis",
       ],
       tech: ["React Native", "TypeScript", "Gemini API", "Supabase", "Zustand", "Expo"],
+      // Proof links — fill these in to turn claims into evidence.
+      // repo: "https://github.com/charlesdev-s/<niichi-repo>",  // ← set + make public
+      // demo: "https://expo.dev/...",                          // APK / Expo Go / TestFlight
+      // video: "https://youtu.be/...",                         // 30–60s screen recording
+      repoPrivate: true,
       cover: asset("assets/nichi/cover.jpg"),
       coverCaption: "Niichi — N5→N1 learning, in one app",
       shots: [
@@ -95,6 +104,11 @@ export const PORTFOLIO = {
         "Emergency broadcast with evacuate / acknowledge / call",
       ],
       tech: ["Unity", "C#", "ARCore", "ARKit", "Mapbox"],
+      // Proof links — fill these in to turn claims into evidence.
+      // repo: "https://github.com/charlesdev-s/<around-repo>",  // ← set + make public (or keep private)
+      // demo: "https://...",                                    // APK / build
+      // video: "https://youtu.be/...",                          // AR walkthrough video
+      repoPrivate: true,
       cover: asset("assets/around/cover.jpg"),
       coverCaption: "ARound BulSU — AR campus navigation",
       shots: [
