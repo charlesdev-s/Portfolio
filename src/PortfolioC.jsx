@@ -353,7 +353,7 @@ function CHero() {
                 overflow: 'hidden',
               }}
             >
-              {/* real headshot, treated to match the mono aesthetic */}
+              {/* real headshot — kept in full colour */}
               <img
                 src={P.headshot}
                 alt={P.name}
@@ -364,20 +364,8 @@ function CHero() {
                   height: '100%',
                   objectFit: 'cover',
                   objectPosition: 'center 22%',
-                  filter: 'grayscale(100%) contrast(1.06)',
+                  filter: 'contrast(1.02) saturate(1.03)',
                   display: 'block',
-                }}
-              />
-              {/* dither texture overlay for the brutalist treatment */}
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  backgroundImage: `radial-gradient(circle at 50% 50%, ${C_COLORS.ink} 1px, transparent 1.5px)`,
-                  backgroundSize: '5px 5px',
-                  opacity: 0.16,
-                  mixBlendMode: 'multiply',
-                  pointerEvents: 'none',
                 }}
               />
               <div
@@ -399,7 +387,7 @@ function CHero() {
             </div>
             <div style={{ padding: 16 }}>
               {[
-                ['NAME', 'Charles R. Gamido'],
+                ['NAME', 'Charles Richard Gamido'],
                 ['ROLE', 'Full-stack / Mobile Dev'],
                 ['BASE', 'Baliuag, Bulacan, PH'],
                 ['EDU', "B.S. Math (CompSci) '26"],
@@ -500,7 +488,7 @@ function CAbout() {
               <div>focus: ["React Native", "Python", "C#"],</div>
               <div>lately: [</div>
               <div style={{ paddingLeft: 18 }}>
-                <div>"shipped Nichi (solo)",</div>
+                <div>"shipped Niichi (solo)",</div>
                 <div>"building ARound BulSU (team of 5)",</div>
                 <div>"CRM + ops for a UK sales team",</div>
               </div>
@@ -673,7 +661,7 @@ function CProjectGallery({ p, accent }) {
             <img src={p.cover} alt={`${p.name} — app overview`} style={{ width: '100%', display: 'block' }} />
           </div>
           <div style={{ marginTop: 4, fontFamily: C_MONO, fontSize: m ? 10 : 11, color: C_COLORS.mute, letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center' }}>
-            {p.name} — N5→N1 learning, in one app
+            {p.coverCaption || p.name}
           </div>
         </>
       ) : (
@@ -1162,7 +1150,7 @@ function CContact() {
           fontSize: 12,
         }}
       >
-        <div style={{ color: C_COLORS.ink, fontWeight: 600 }}>©2026 Charles R. Gamido · MIT-spirited build</div>
+        <div style={{ color: C_COLORS.ink, fontWeight: 600 }}>©2026 Charles Richard Gamido · MIT-spirited build</div>
         <div style={{ color: C_COLORS.mute, letterSpacing: '0.1em' }}>Last commit: 2026-05 · Build: stable</div>
       </div>
     </CSection>

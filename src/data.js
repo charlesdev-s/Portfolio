@@ -49,7 +49,7 @@ export const PORTFOLIO = {
   projects: [
     {
       id: "nichi",
-      name: "Nichi",
+      name: "Niichi",
       tag: "Featured",
       period: "Dec 2025 — Mar 2026",
       role: "Solo · Full-stack mobile",
@@ -65,6 +65,7 @@ export const PORTFOLIO = {
       ],
       tech: ["React Native", "TypeScript", "Gemini API", "Supabase", "Zustand", "Expo"],
       cover: asset("assets/nichi/cover.jpg"),
+      coverCaption: "Niichi — N5→N1 learning, in one app",
       shots: [
         { src: asset("assets/nichi/01-splash.png"), cap: "Splash" },
         { src: asset("assets/nichi/10-home.png"),  cap: "Home" },
@@ -93,6 +94,8 @@ export const PORTFOLIO = {
         "Emergency broadcast with evacuate / acknowledge / call",
       ],
       tech: ["Unity", "C#", "ARCore", "ARKit", "Mapbox"],
+      cover: asset("assets/around/cover.jpg"),
+      coverCaption: "ARound BulSU — AR campus navigation",
       shots: [
         { src: asset("assets/around/01-splash.jpg"), cap: "Launch" },
         { src: asset("assets/around/02-map.jpg"), cap: "Live map" },
