@@ -282,7 +282,7 @@ function CHero() {
               <br />
               <span style={{ color: C_COLORS.mute }}>{' * '}</span>Full-stack &amp; mobile developer.
               <br />
-              <span style={{ color: C_COLORS.mute }}>{' * '}</span>I ship end-to-end products in React Native,
+              <span style={{ color: C_COLORS.mute }}>{' * '}</span>I build end-to-end products in React Native,
               <br />
               <span style={{ color: C_COLORS.mute }}>{' * '}</span>Python and C# — with a math habit and
               <br />
@@ -479,7 +479,7 @@ function CAbout() {
             <div style={{ paddingLeft: 18 }}>
               <div>
                 <span style={{ color: C_COLORS.accentDeep }}>// </span>
-                <span style={{ color: C_COLORS.mute }}>currently shipping</span>
+                <span style={{ color: C_COLORS.mute }}>currently building</span>
               </div>
               <div>
                 name: <span style={{ background: C_COLORS.accent }}>"Charles Richard Gamido"</span>,
@@ -488,7 +488,7 @@ function CAbout() {
               <div>focus: ["React Native", "Python", "C#"],</div>
               <div>lately: [</div>
               <div style={{ paddingLeft: 18 }}>
-                <div>"shipped Niichi (solo)",</div>
+                <div>"built Niichi end-to-end (solo)",</div>
                 <div>"building ARound BulSU (team of 5)",</div>
                 <div>"CRM + ops for a UK sales team",</div>
               </div>
@@ -508,7 +508,7 @@ function CAbout() {
             ['STACK', 'TS, RN, Python, C#, Unity, Supabase'],
             ['OPEN', 'FT, contract, freelance — remote-first'],
             ['TIME', 'PHT / UTC+8 — flexible for EU/US'],
-            ['SHIP', 'I read every message myself'],
+            ['REPLY', 'I read every message myself'],
           ].map(([k, v], i) => (
             <div
               key={k}
@@ -760,7 +760,7 @@ function CProjectCard({ p, i }) {
           ))}
 
           <div>
-            <CLabel size={11} color={C_COLORS.mute} style={{ marginBottom: 8 }}>{'> WHAT_SHIPPED'}</CLabel>
+            <CLabel size={11} color={C_COLORS.mute} style={{ marginBottom: 8 }}>{'> HIGHLIGHTS'}</CLabel>
             <ul style={{ margin: 0, padding: 0, listStyle: 'none', fontFamily: C_MONO, fontSize: 13.5, lineHeight: 1.6 }}>
               {p.outcomes.map((o, j) => (
                 <li key={j} style={{ display: 'flex', gap: 10, color: C_COLORS.ink, padding: '3px 0' }}>

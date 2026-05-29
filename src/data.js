@@ -28,10 +28,10 @@ export const PORTFOLIO = {
     "Full-stack developer and data analyst with hands-on experience in mobile app development, statistical modeling, and CRM systems — building end-to-end solutions across React Native, Python and C# on a strong mathematical foundation.",
 
   stats: [
-    { value: "4+", label: "Shipped projects" },
+    { value: "4+", label: "Projects built" },
     { value: "10+", label: "Languages & tools" },
     { value: "3", label: "Professional roles" },
-    { value: "1.5y", label: "Leading teams" },
+    { value: "1y+", label: "Leading a team" },
   ],
 
   education: [
@@ -44,6 +44,7 @@ export const PORTFOLIO = {
     "Mobile & AR": [["React Native", 88], ["Unity", 75], ["ARCore / ARKit", 70], ["Expo", 80]],
     "Backend & Data": [["Supabase", 82], ["Zustand", 85], ["R / Jamovi", 78], ["GLM / Regression", 80], ["MATLAB", 65]],
     "Tooling & Design": [["Git", 88], ["Photoshop", 80], ["Illustrator", 75], ["LaTeX", 78], ["Excel (advanced)", 90]],
+    "Hardware & Media": [["Photography", 82], ["Hardware Assembly", 80], ["System Diagnostics", 76], ["Win/Linux Install", 82]],
   },
 
   projects: [
