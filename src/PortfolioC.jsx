@@ -363,8 +363,8 @@ function CHero() {
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  objectPosition: 'center 18%',
-                  filter: 'grayscale(100%) contrast(1.08)',
+                  objectPosition: 'center 22%',
+                  filter: 'grayscale(100%) contrast(1.06)',
                   display: 'block',
                 }}
               />
@@ -501,7 +501,7 @@ function CAbout() {
               <div>lately: [</div>
               <div style={{ paddingLeft: 18 }}>
                 <div>"shipped Nichi (solo)",</div>
-                <div>"leading ARound BulSU (5-person)",</div>
+                <div>"building ARound BulSU (team of 5)",</div>
                 <div>"CRM + ops for a UK sales team",</div>
               </div>
               <div>],</div>
@@ -666,32 +666,46 @@ function CProjectGallery({ p, accent }) {
       <div style={{ position: 'absolute', top: 16, right: 20, fontFamily: C_MONO, fontSize: 10, color: C_COLORS.mute, letterSpacing: '0.1em' }}>
         FIG_{p.id.toUpperCase()}
       </div>
-      <div style={{ display: 'flex', gap: m ? 8 : 12, justifyContent: 'center', alignItems: 'flex-end' }}>
-        {p.shots.slice(0, 3).map((sh, j) => (
-          <div
-            key={j}
-            style={{
-              width: w,
-              aspectRatio: '9/19.5',
-              borderRadius: 18,
-              overflow: 'hidden',
-              background: '#000',
-              border: '3px solid #0a0a0a',
-              transform: j === 1 ? 'translateY(-20px)' : 'none',
-              boxShadow: j === 1 ? `6px 6px 0 ${accent}` : `4px 4px 0 ${C_COLORS.ink}`,
-            }}
-          >
-            <img src={sh.src} alt={sh.cap} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+
+      {p.cover ? (
+        <>
+          <div style={{ width: '100%', border: `3px solid ${C_COLORS.ink}`, boxShadow: `6px 6px 0 ${accent}`, overflow: 'hidden', background: '#fff' }}>
+            <img src={p.cover} alt={`${p.name} — app overview`} style={{ width: '100%', display: 'block' }} />
           </div>
-        ))}
-      </div>
-      <div style={{ marginTop: 14, fontFamily: C_MONO, fontSize: m ? 10 : 11, color: C_COLORS.mute, letterSpacing: '0.1em', display: 'flex', gap: m ? 8 : 14 }}>
-        {p.shots.slice(0, 3).map((sh, j) => (
-          <div key={j} style={{ width: w, textAlign: 'center', textTransform: 'uppercase' }}>
-            {sh.cap}
+          <div style={{ marginTop: 4, fontFamily: C_MONO, fontSize: m ? 10 : 11, color: C_COLORS.mute, letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center' }}>
+            {p.name} — N5→N1 learning, in one app
           </div>
-        ))}
-      </div>
+        </>
+      ) : (
+        <>
+          <div style={{ display: 'flex', gap: m ? 8 : 12, justifyContent: 'center', alignItems: 'flex-end' }}>
+            {p.shots.slice(0, 3).map((sh, j) => (
+              <div
+                key={j}
+                style={{
+                  width: w,
+                  aspectRatio: '9/19.5',
+                  borderRadius: 18,
+                  overflow: 'hidden',
+                  background: '#000',
+                  border: '3px solid #0a0a0a',
+                  transform: j === 1 ? 'translateY(-20px)' : 'none',
+                  boxShadow: j === 1 ? `6px 6px 0 ${accent}` : `4px 4px 0 ${C_COLORS.ink}`,
+                }}
+              >
+                <img src={sh.src} alt={sh.cap} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: 14, fontFamily: C_MONO, fontSize: m ? 10 : 11, color: C_COLORS.mute, letterSpacing: '0.1em', display: 'flex', gap: m ? 8 : 14 }}>
+            {p.shots.slice(0, 3).map((sh, j) => (
+              <div key={j} style={{ width: w, textAlign: 'center', textTransform: 'uppercase' }}>
+                {sh.cap}
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   )
 }
@@ -796,12 +810,44 @@ function CProjectCard({ p, i }) {
   )
 }
 
+function CMoreProjects() {
+  const m = useM()
+  if (!P.moreProjects?.length) return null
+  return (
+    <div style={{ marginTop: 12 }}>
+      <CLabel size={11} color={C_COLORS.mute} style={{ marginBottom: 14 }}>{'// also built'}</CLabel>
+      <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: m ? 16 : 24 }}>
+        {P.moreProjects.map((mp, i) => (
+          <div key={i} style={cBox({ padding: m ? 20 : 24, boxShadow: `5px 5px 0 ${C_COLORS.ink}` })}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12 }}>
+              <h4 style={{ fontFamily: C_DISP, fontSize: m ? 20 : 24, fontWeight: 700, color: C_COLORS.ink, margin: 0, letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+                {mp.name}
+              </h4>
+              <span style={{ fontFamily: C_MONO, fontSize: 11, color: C_COLORS.accentDeep, fontWeight: 600, whiteSpace: 'nowrap' }}>{mp.year}</span>
+            </div>
+            <div style={{ fontFamily: C_MONO, fontSize: 12, color: C_COLORS.inkSoft, marginTop: 4, marginBottom: 12 }}>{mp.kind}</div>
+            <p style={{ fontFamily: C_MONO, fontSize: 13, lineHeight: 1.6, color: C_COLORS.ink, margin: '0 0 14px', textWrap: 'pretty' }}>{mp.blurb}</p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+              {mp.tech.map((t) => (
+                <span key={t} style={{ fontFamily: C_MONO, fontSize: 11, color: C_COLORS.ink, fontWeight: 600, padding: '3px 9px', border: `1.5px solid ${C_COLORS.ink}`, background: C_COLORS.bg }}>
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function CWork() {
   return (
-    <CSection tag="03 / WORK.JSON" id="work-c" title="Selected work." kicker="// Two recent builds. Each card: problem → approach → what shipped → stack.">
+    <CSection tag="03 / WORK.JSON" id="work-c" title="Selected work." kicker="// Two featured builds — then a few more from the lab.">
       {P.projects.map((p, i) => (
         <CProjectCard key={p.id} p={p} i={i} />
       ))}
+      <CMoreProjects />
     </CSection>
   )
 }
@@ -902,10 +948,6 @@ function CExperience() {
                 <span>{l}</span>
               </li>
             ))}
-            <li style={{ fontFamily: C_MONO, fontSize: 14, lineHeight: 1.55, color: '#e8e8e8', display: 'flex', gap: 10 }}>
-              <span style={{ color: C_COLORS.accent, fontWeight: 700 }}>▸</span>
-              <span>Co-authored TESDA graduate-outcome research (95 grads), presented to leadership</span>
-            </li>
           </ul>
         </div>
       </div>

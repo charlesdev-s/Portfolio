@@ -21,11 +21,11 @@ export const PORTFOLIO = {
   upworkUrl: "https://www.upwork.com/freelancers/~0109a40a0503b7e629",
   available: true,
 
-  headshot: asset("charles-photo.jpg"),
+  headshot: asset("charles-grad-2026.jpg"),
   resume: asset("Charles-Richard-Gamido-Resume.pdf"),
 
   tagline:
-    "I build end-to-end mobile and web products — from AI-driven learning apps to AR campus navigation — grounded in a math and data background.",
+    "Full-stack developer and data analyst with hands-on experience in mobile app development, statistical modeling, and CRM systems — building end-to-end solutions across React Native, Python and C# on a strong mathematical foundation.",
 
   stats: [
     { value: "4+", label: "Shipped projects" },
@@ -35,8 +35,8 @@ export const PORTFOLIO = {
   ],
 
   education: [
-    { degree: "B.S. Mathematics (Computer Science)", school: "Bulacan State University", year: "Jun 2026", note: "Thesis: AR campus navigation app (team of 5)" },
-    { degree: "Senior High — STEM strand", school: "Marian College of Baliuag", year: "Jun 2022" },
+    { degree: "B.S. Mathematics (Computer Science)", school: "Bulacan State University · Malolos", year: "Jun 2026", note: "AR campus navigation thesis (team of 5)" },
+    { degree: "Senior High — STEM strand", school: "Marian College of Baliwag Inc.", year: "Jun 2022" },
   ],
 
   skills: {
@@ -64,6 +64,7 @@ export const PORTFOLIO = {
         "Offline-friendly vocab review with audio synthesis",
       ],
       tech: ["React Native", "TypeScript", "Gemini API", "Supabase", "Zustand", "Expo"],
+      cover: asset("assets/nichi/cover.jpg"),
       shots: [
         { src: asset("assets/nichi/01-splash.png"), cap: "Splash" },
         { src: asset("assets/nichi/10-home.png"),  cap: "Home" },
@@ -136,8 +137,29 @@ export const PORTFOLIO = {
   ],
 
   leadership: [
-    "Lead developer & project manager — ARound BulSU thesis (team of 5)",
-    "Community moderator — Discord servers (1k+ members)",
+    "Communications Team Lead — Every Nation Campus media ministry (Sep 2023 – Jan 2025): recruited & trained student volunteers in photography, design and social media, directing content strategy and branding",
+    "UI/UX design lead — ARound BulSU AR navigation thesis (team of 5)",
+    "Co-authored TESDA graduate-outcome research on 95 Dressmaking NC II graduates, presented to leadership",
+  ],
+
+  // Additional resume projects shown as a compact strip below the featured work.
+  moreProjects: [
+    {
+      name: "Climatic Factors & Dengue Incidence",
+      kind: "Statistical / Mathematical Modeling",
+      year: "2025",
+      tech: ["R", "Jamovi", "Neg. Binomial Regression"],
+      blurb:
+        "Modeled dengue–climate relationships and identified relative humidity as the primary driver via VIF / AIC / BIC diagnostics. Presented to local health researchers.",
+    },
+    {
+      name: "Eli",
+      kind: "2D Platformer Game",
+      year: "2025",
+      tech: ["Unity", "C#", "Krita"],
+      blurb:
+        "Co-programmed a 2D platformer with movement and dash/glide mechanics across interactive levels; designed original character sprites and level maps.",
+    },
   ],
 };
 
